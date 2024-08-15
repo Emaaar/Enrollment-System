@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="April30.MainPage">
+
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Label Text="Student Number" />
+                <Entry x:Name="StudentNumberEntry" />
+
+                <Label Text="Program/Course" />
+                <Picker x:Name="ProgramPicker">
+                    <Picker.Items>
+                        <x:String>BSIT</x:String>
+                        <x:String>BIT</x:String>
+                        <x:String>BSIE</x:String>
+                        <x:String>BSF</x:String>
+                        <x:String>BSA</x:String>
+                        <x:String>BSHM</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Year &amp; Level" />
+                <StackLayout Orientation="Horizontal">
+                    <RadioButton x:Name="Year1RadioButton" Content="Freshman" />
+                    <RadioButton x:Name="Year2RadioButton" Content="Sophomore" />
+                    <RadioButton x:Name="Year3RadioButton" Content="Junior" />
+                    <RadioButton x:Name="Year4RadioButton" Content="Senior" />
+                </StackLayout>
+
+                <Label Text="Number of Units Enrolled" />
+                <Entry x:Name="UnitsEnrolledEntry" />
+
+                <Button Text="Add Student" Clicked="AddStudentButton_Clicked" />
+                <Button Text="Search Student" Clicked="SearchStudentButton_Clicked" />
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Table of Student Data -->
+        <ListView x:Name="StudentListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding StudentNumber}" FontAttributes="Bold" />
+                            <Label Text="{Binding ProgramCourse}" />
+                            <Label Text="{Binding YearLevel}" />
+                            <Label Text="{Binding NumberOfUnitsEnrolled}" />
+                            <Label Text="{Binding TuitionFee}" />
+                            <Label Text="{Binding DownPayment}" />
+                            <Label Text="{Binding Balance}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
